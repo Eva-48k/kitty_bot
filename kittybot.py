@@ -16,7 +16,7 @@ load_dotenv()
 secret_token = os.getenv('TOKEN')
 
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging. DEBUG,
     format='%(asctime)s, %(levelname)s, %(name)s, %(message)s'
 )
 logger = logging.getLogger()
@@ -64,9 +64,7 @@ def main():
     updater = Updater(token=secret_token)
 
     updater.dispatcher.add_handler(CommandHandler('start', wake_up))
-    logging.info('Сообщение успешно отправлено.')
     updater.dispatcher.add_handler(CommandHandler('newcat', new_cat))
-    logging.info('Сообщение успешно отправлено.')
 
     updater.start_polling()
     updater.idle()
